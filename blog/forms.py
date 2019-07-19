@@ -11,6 +11,7 @@ class PostCreateForm(forms.ModelForm):
             'title',
             'body',
             'status',
+            'restrict_comment',
         )
 
 
@@ -25,19 +26,10 @@ class PostEditForm(forms.ModelForm):
             'title',
             'body',
             'status',
+            'restrict_comment',
         )
 
 
-
-
-class PostEditForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = (
-            'title',
-            'body',
-            'status',
-        )
 
 
 

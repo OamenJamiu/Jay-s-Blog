@@ -383,17 +383,17 @@
       <workItem from="1562920814066" duration="224000" />
       <workItem from="1562927980056" duration="2516000" />
       <workItem from="1563007402952" duration="1458000" />
-      <workItem from="1563532326920" duration="769000" />
+      <workItem from="1563532326920" duration="1487000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31003000" />
+    <option name="totallyTimeSpent" value="31721000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="812" y="4" width="732" height="832" extended-state="1" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978166" visible="true" weight="0.35066864" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978166" visible="true" weight="0.15828303" />
       <window_info id="Structure" order="1" sideWeight="0.5021834" side_tool="true" weight="0.10663984" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -405,7 +405,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32886904" />
       <window_info anchor="bottom" id="Graph Database Console" order="8" weight="0.32886904" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49899396" visible="true" weight="0.32142857" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49899396" visible="true" weight="0.31858408" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.501006" side_tool="true" weight="0.32886904" />
       <window_info anchor="bottom" id="KDBStudio" order="12" />
