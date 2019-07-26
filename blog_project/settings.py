@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -168,3 +168,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'R6fJZ1mqylFHXckfdeEfR32a'
 
 SOCIAL_AUTH_GITHUB_KEY = '9bf46346f23d87d71d50'
 SOCIAL_AUTH_GITHUB_SECRET = '43df50d095f1337df1a2df9ff5e5e62ee7e7d2d9'
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
