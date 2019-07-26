@@ -1,17 +1,68 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<footer class="footer text-white">
-    <div class="row">
-        <div class="col-md-4">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero quod odit laboriosam. Odit neque doloremque quasi minus nesciunt repudiandae libero sapiente! Illo, error incidunt architecto eius pariatur ullam nobis sequi!.
-            </p>
-        </div>
-        <div class="col-md-4">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero quod odit laboriosam. Odit neque doloremque quasi.
-            </p>
-        </div>
-        <div class="col-md-4">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero quod odit laboriosam. Odit neque doloremque quasi.
-            </p>
-        </div>
-    </div>
-</footer>
+<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Main</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="{% url 'index_view' %}"><i class="fa fa-angle-double-right"></i>Home Page</a></li>
+						<li><a href="{% url 'about' %}"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="{% url 'terms' %}"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="{% url 'register' %}"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Access Our Blog</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="{% url 'post_list' %}"><i class="fa fa-angle-double-right"></i>Blog Home</a></li>
+						<li><a href="{% url 'user_logout' %}"><i class="fa fa-angle-double-right"></i>Log Out</a></li>
+						<li><a href="{% url 'user_login' %}"><i class="fa fa-angle-double-right"></i>Login</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Contact Us</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="tel:+2348092788452"><i class="fa fa-phone" style="font-size:36px"></i></i>+23 4809 278 8452</a></li><br>
+						<li><a href="sms:+2347064791617"><i class="fa fa-envelope" style="font-size:36px"></i>+23 4706 479 1617</a></li><br>
+						<li><a href=" https://wa.me/+2347064791617/?text=I'm%20from%20Jay's%20Blog%20.com%20I%20want%20to%20Chat%20Sir!!"><i class="fab fa-whatsapp" style="font-size:36px"></i>WHATSAPP</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item">
+                            <a href="http://www.facebook.com/oamenjamiu">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+						<li class="list-inline-item"><a href="http://www.twitter.com/oamenjamiu">
+                            <i class="fab fa-twitter"></i></a>
+                        </li>
+						<li class="list-inline-item"><a href="https://www.instagram.com/ballz_stark/?hl=en">
+                            <i class="fab fa-instagram"></i></a>
+                        </li>
+						<li class="list-inline-item"><a href="mailto: oamenjamiu@gmail.com">
+                            <i class="fab fa-google"></i></a>
+                        </li>
+						<li class="list-inline-item"><a href="mailto: oamenjamiu@ymail.com" target="_blank">
+                            <i class="fab fa-yahoo"></i></a>
+                        </li>
+					</ul>
+				</div>
+				</hr>
+            </div>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p class="h6">&copy 2019 All right Reversed.<br><h1> Jay's Blog</h1></p>
+				</div>
+				</hr>
+			</div>	
+		</div>
+	</section>
+	<!-- ./Footer -->

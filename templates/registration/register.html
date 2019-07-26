@@ -1,9 +1,27 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+
+</div>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<div class="container" id="form-wrapper" style="max-width:500px;margin:auto;">
     <form method="post">
+        <strong>
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit" class="btn btn-outline-success">
+        </strong>
+        <input type="submit" value="Submit" class="btn btn-primary">
     </form>
-
+</div>
+</div>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
 {% endblock %}

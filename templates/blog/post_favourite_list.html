@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+{% for p in favourite_posts %}
+
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'images/default-avatar.png' %}" alt="Card image cap">
+            Title: {{ p.title }}<br>
+            Content: {{ p.body }}<br>
+            Author: {{ p.author }}<br>
+            Created On: {{ p.created }}<br>
+            <div class="container">
+                <a href="{{ p.get_absolute_url }}" class="btn btn-outline-danger">Read More</a>
+            </div>
+        </div>
+        <br>
+    </div>
+    {% empty %}
+    <div class="container-fluid">
+        <h3>No Favourite Post(s) Found."</h3>
+    </div>
+
+    {% endfor %}
+
+
+</div>
+{% endblock %}

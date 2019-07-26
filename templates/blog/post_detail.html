@@ -5,9 +5,15 @@
 {% block content %}
 
 {% include 'blog/alerts.html' %}
-
-  <h3>{{ post.title }}</h3>
-  <small>Post created by: {{ post.author }}</small>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container" >
+  <strong>
+  <h1>{{ post.title }}</h1>
+  <b><p>Post created by: {{ post.author }}</p></b>
   <hr>
   <p>{{ post.body }}</p>
 
@@ -23,6 +29,19 @@
 <div id="like-section">
   {% include 'blog/like_section.html' %}
 </div>
+
+<div id="favourite-section">
+  {% if is_favourite %}
+  <a href="{% url 'favourite_post' id=post.id %}">
+      <i class="fas fa-heart fa-lg"></i>
+  </a>
+  {% else %}
+  <a href="{% url 'favourite_post' id=post.id %}">
+    <i class="far fa-heart fa-lg"></i>
+  </a>
+  {% endif %}
+</div>
+
 {% if post.author == request.user %}
 
 
@@ -46,6 +65,7 @@
 </div>
 {% endif %}
 
+</strong>
 
 
 
@@ -53,6 +73,8 @@
 
 
 
-
-
+</div>
+<br>
+<br>
+<br>
 {% endblock %}

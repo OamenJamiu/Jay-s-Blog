@@ -1,11 +1,27 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid" id="form-wrapper" style="max-width:500px;margin:auto;">
     <form method="post" enctype="multipart/form-data">
+        <strong>
         {% csrf_token  %}
         {{ form.as_p }}
         {{ formset.as_table }}
+        </strong>
         <input type="submit" value="Create" class="btn btn-outline-success">
     </form>
     
-  
+</div>
+</div>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
 {% endblock %}

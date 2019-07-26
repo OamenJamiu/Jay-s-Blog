@@ -1,2 +1,2 @@
-# Jay-s-Blog
-My Django App
+# Jays-Blog
+My Django App 2

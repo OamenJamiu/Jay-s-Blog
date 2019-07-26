@@ -1,21 +1,47 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+</div>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<div class="container" id="form-wrapper" style="max-width:500px;margin:auto;">
     <form method="post">
+        <strong>
         {% csrf_token %}
         {{ form.as_p }}
+        </strong>
+        <input type="submit" value="Login" class="btn btn-outline-success">
+        <br>
+        <br>
         <small>
-            <a href="{% url 'register' %}">Register</a> |
-            <a href="{% url 'password_reset' %}">Forgotten Your Password?</a>
+            <a href="{% url 'register' %}">
+                <button type="button" name="button" class="btn btn-outline-primary">Register</button>
+            </a> |     
+            <a href="{% url 'password_reset' %}">
+                <button type="button" name="button" class="btn btn-outline-danger">Forgotten Your Password?</button>
+            </a>
         </small>
         <br>
-
-        <input type="submit" value="Login" class="btn btn-outline-success">
-        <p>-- OR --</p>
+        <br>
+        
+        <strong>  OR  </strong><br>
+        <b>Login With Social Account:</b><br><br>
         <a href="{% url 'social:begin' 'github' %}">
-            <button type="button" name="button" class="btn btn-primary">Github</button>></button>
-        </a>
+            <button type="button" name="button" class="btn btn-primary"><i class="fab fa-linkedin-in">Linked in</i></button>
+        </a>  |   
         <a href="{% url 'social:begin' 'google-oauth2' %}">
-            <button type="button" name="button" class="btn btn-danger">Google+</button>></button>
+            <button type="button" name="button" class="btn btn-danger"><i class="fab fa-google"></i></a>oogle+</button>
         </a>
     </form>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
 {% endblock %}

@@ -30,15 +30,23 @@ class PostEditForm(forms.ModelForm):
         )
 
 
-
+class ContactForm(forms.Form):
+    # first_name = forms.CharField(required=True, max_length=50, widget=forms.TextInput(attrs = {'placeholder': 'First Name*'}))
+    # last_name = forms.CharField(required=True, max_length=50, widget=forms.TextInput(attrs = {'placeholder': 'Last Name*'}))
+    name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs = {'placeholder': 'Your Name*'}))
+    email = forms.EmailField(required=True, max_length=250, widget=forms.TextInput(attrs = {'placeholder': 'Your Email*'}))
+    subject = forms.CharField(required=True, max_length=450, widget=forms.TextInput(attrs = {'placeholder': 'Subject*'}))
+    message = forms.CharField(widget=forms.Textarea(attrs = {'placeholder': 'Your Message*'}), required=True)
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label="")
-    password = forms.CharField(label="", widget=forms.PasswordInput)
+    username = forms.CharField(label="Username", widget=forms.TextInput(attrs = {'placeholder':'Enter Username Here'}))
+    password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs ={'placeholder':'Enter Password Here'} ))
 
 
 class UserRegistrationForm(forms.ModelForm):
+    email = forms.CharField(widget = forms.EmailInput(attrs = {'placeholder':'Unchangeable Email'}))
+    username= forms.CharField(widget = forms.TextInput(attrs = {'placeholder':'Unchangeable Username'}))
     password = forms.CharField(widget = forms.PasswordInput(attrs = {'placeholder':'Enter Password Here...'}))
     confirm_password = forms.CharField(widget = forms.PasswordInput(attrs = {'placeholder':'Confirm Password...'}))
     class Meta:

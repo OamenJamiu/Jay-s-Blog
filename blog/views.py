@@ -11,7 +11,42 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import render_to_string
 from django.forms import modelformset_factory
 from django.contrib import messages
+from django.core.mail import send_mail
 # Create your views here.
+
+def index_view(request):
+    return render(request, 'blog/index.html')
+
+def about(request):
+    return render(request, 'blog/about.html')
+
+def contact(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # first_name = form.cleaned_data['first_name']
+            # last_name = form.cleaned_data['last_name']
+            name = form.cleaned_data['name']
+            subject = form.cleaned_data['subject']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, email, ['oamenjamiu@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    return render(request, "blog/contact.html", {'form': form})
+
+def success(request):
+    return render(request, "blog/success.html")
+
+def privacy(request):
+    return render(request, 'blog/privacy.html')
+
+def terms(request):
+    return render(request, 'blog/terms.html')
 
 def post_list(request):
     post_list = Post.published.all()
@@ -22,7 +57,7 @@ def post_list(request):
         Q(author__username=query)|
         Q(body__icontains=query)           
         )
-    paginator = Paginator(post_list, 5)
+    paginator = Paginator(post_list, 6)
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
@@ -63,8 +98,12 @@ def post_detail(request, id, slug):
     post = get_object_or_404(Post, id=id, slug=slug)
     comments = Comment.objects.filter(post=post, reply=None).order_by('-id')
     is_liked = False
+    is_favourite = False
     if post.likes.filter(id=request.user.id).exists():
         is_liked = True
+
+    if post.favourite.filter(id=request.user.id).exists():
+        is_favourite = True
 
 
     if request.method =='POST':
@@ -88,6 +127,7 @@ def post_detail(request, id, slug):
     context = {
         'post': post,
         'is_liked': is_liked,
+        'is_favourite': is_favourite,
         'total_likes': post.total_likes(),
         'comments': comments,
         'comment_form': comment_form,
@@ -98,6 +138,26 @@ def post_detail(request, id, slug):
 
     return render(request, 'blog/post_detail.html', context)
 
+
+def post_favourite_list(request):
+    user = request.user
+    favourite_posts = user.favourite.all()
+    context = {
+        'favourite_posts': favourite_posts,
+    }
+    return render(request, 'blog/post_favourite_list.html', context)
+
+
+
+
+def favourite_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    if post.favourite.filter(id=request.user.id).exists():
+        post.favourite.remove(request.user)
+
+    else:
+        post.favourite.add(request.user)
+    return HttpResponseRedirect(post.get_absolute_url())
 
 
 
@@ -221,7 +281,8 @@ def user_login(request):
                 else:
                     return HttpResponse("User is not active")
             else:
-                return HttpResponse("User is None")
+                return render(request, 'blog/non_user.html')
+                # return HttpResponse("We are Sorry To inform You That, Your details are not Registered")
     else:
 
         form = UserLoginForm()

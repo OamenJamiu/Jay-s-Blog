@@ -1,21 +1,27 @@
 {% extends 'blog/base.html' %}
-
+{% load static %}
 {% block title %}Welcome to {{ block.super }}{% endblock %}
 
 
 {% block content %}
 
 {% include 'blog/alerts.html' %}
-
+<div class="container">
 <div class="row">
     {% for p in posts %}
-    <div class="col-md-6">
-        <div class="img-thumbnail">
-            <a href="{% url 'post_detail' p.id p.slug %}">{{ p.title }}</a><small
-                style="float:right">{{ p.created }}</small><br>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{% static 'images/default-avatar.png' %}" alt="Card image cap">
+            Title: {{ p.title }}<br>
+            Content: {{ p.body }}<br>
             Author: {{ p.author }}<br>
-            {{ p.body }}
+            Created On: {{ p.created }}<br>
+        <div class="container">
+            <!-- <div class="col-lg-12"> -->
+        <a href="{{ p.get_absolute_url }}" class="btn btn-outline-danger">Read More</a>
+        <!-- </div> -->
         </div>
+    </div>
         <br>
     </div>
     {% empty %}
@@ -27,7 +33,7 @@
 </div>
 
 
-
+<div class="container">
 <ul class="pagination">
     {% if posts.has_previous %}
         <li class="page-item">
@@ -53,10 +59,10 @@
         <a href="?page={{ posts.next_page_number }}" class="page-link">&raquo;</a>
     </li>
     {% endif %}
-
+</div>
 
 </ul>
-
+</div>
 {% endblock %}
 
 

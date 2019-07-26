@@ -1,0 +1,348 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Jay's Blog | {% block title %}{% endblock %}</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/agency.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/">
+        <button class="btn btn-outline-info">Jay's Blog</button></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/">
+              <button class="btn btn-outline-danger">Home</button></a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'post_list' %}">
+              <button class="btn btn-outline-danger">Blog</button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'about' %}">
+              <button class="btn btn-outline-danger">About</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'contact' %}">
+              <button class="btn btn-outline-danger">Contact</button></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  {% block content %}
+
+
+
+  {% endblock %}
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <span class="copyright">Copyright &copy; Jay's Blog 2019</span>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item">
+                        <a href="http://www.twitter.com/oamenjamiu">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="http://www.facebook.com/oamenjamiu">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/jamiu-oamen-577984186/">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li class="list-inline-item">
+                        <a href="{% url 'privacy' %}">Privacy Policy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="{% url 'terms' %}">Terms of Use</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- Portfolio Modals -->
+
+  <!-- Modal 1 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Styles</h2>
+                <p class="item-intro text-muted"> Beauty Always Inside Us To Show.</p>
+                <img class="img-fluid d-block mx-auto" src="{% static 'img/portfolio/01.jpg' %}" alt="img/portfolio/01-thumbnail.jpg">
+                <p>Best of what we saw wanted to be included into This Project and focusing at very beautiful things, That's what we did
+                  always. Adding every best quality of our profession to the Projects is always our best interest in our minds !</p>
+                <ul class="list-inline">
+                  <li>Date: December 2018</li>
+                  <li>Client: Threads</li>
+                  <li>Category: Illustration</li>
+                </ul>
+                <button class="btn btn-outline-danger" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Searching For The Best</h2>
+                <p class="item-intro text-muted">Dipper Inside We Never Got Satisfied Enough.</p>
+                <img class="img-fluid d-block mx-auto" src="{% static 'img/portfolio/02.jpg' %}" alt="img/portfolio/02-thumbnail.jpg">
+                <p>After finishing what we started, We never felt it was enough for our USERS, In the mission to satisfy with everything possible,
+                  we went into the world to explore more and bring them on the table to be the best site in Minds for Years to come, So we kept more
+                  beauty into what we had seen and never stop searching for the Best.
+                  THE SEARCH STILL ON!!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2019</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-outline-danger" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Nice Touches</h2>
+                <p class="item-intro text-muted">We have to conclude Somewhere You Know!!.</p>
+                <img class="img-fluid d-block mx-auto" src="{% static 'img/portfolio/03.jpg' %}" alt="img/portfolio/03-thumbnail.jpg">
+                <p>We needed to conclude every step to make the side a progress and finising Touches are always needed in every project
+                  to increase its beauty in the eyes of USERS and catch their best attention to always want to be online
+                  on this Blog Always. If possible!</p>
+                <ul class="list-inline">
+                  <li>Date: February 2019</li>
+                  <li>Client: Finish</li>
+                  <li>Category: Identity</li>
+                </ul>
+                <button class="btn btn-outline-danger" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Arrangement</h2>
+                <p class="item-intro text-muted">Putting Down Our Suggestion was Important.</p>
+                <img class="img-fluid d-block mx-auto" src="{% static 'img/portfolio/04.png' %}" alt="img/portfolio/04-thumbnail.jpg">
+                <p>Concluding a when is like putting every resources on the line. After all hardworks and every motive to succeed
+                  and if yielding enough for us and if it's needy to Add something Else!</p>
+                <ul class="list-inline">
+                  <li>Date: February 2019</li>
+                  <li>Client: Lines</li>
+                  <li>Category: Branding</li>
+                </ul>
+                <button class="btn btn-outline-danger" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">New Designs</h2>
+                <p class="item-intro text-muted">Designs have been on Major Key.</p>
+                <img class="img-fluid d-block mx-auto" src="{% static 'img/portfolio/05.jpg' %}" alt="img/portfolio/05-thumbnail.jpg">
+                <p>Looking and Searching for the best designs available is one of the challenging task done in programming. Even after Concluding,
+                  we asked ourselves if what we've got here is the best around?
+                  no Answer was  giving,
+                  In that Case, We never stopped looking for the best Designs available!</p>
+                <ul class="list-inline">
+                  <li>Date: March 2019</li>
+                  <li>Client: Southwest</li>
+                  <li>Category: Website Design</li>
+                </ul>
+                <button class="btn btn-outline-danger" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Checking</h2>
+                <p class="item-intro text-muted">Testing Is One Hell Of A Beauty.</p>
+                <img class="img-fluid d-block mx-auto" src="{% static 'img/portfolio/06.jpg' %}" alt="img/portfolio/06-thumbnail.jpg">
+                <p>USERS I mean is Those we satisfy and unpleasant things, They must express themselves.
+                  Testing was very Important to make use no bugs nor error with Codes, Seems we had alot of time to want to be perfect
+                  at making sure no mistakes made
+                  It had been One hell of An Adventure to me Creating A site to Satisfy.
+                  Enjoy!!!</p>
+                <ul class="list-inline">
+                  <li>Date: July 2019</li>
+                  <li>Client: Window</li>
+                  <li>Category: Photography</li>
+                </ul>
+                <button class="btn btn-outline-danger" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+  <script src="{% static 'js/contact_me.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/agency.min.js' %}"></script>
+
+</body>
+
+</html>
