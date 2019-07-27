@@ -30,6 +30,8 @@
   {% include 'blog/like_section.html' %}
 </div>
 
+
+{% if request.user.is_authenticated %}
 <div id="favourite-section">
   {% if is_favourite %}
   <a href="{% url 'favourite_post' id=post.id %}">
@@ -41,6 +43,9 @@
   </a>
   {% endif %}
 </div>
+{% endif %}
+
+
 
 {% if post.author == request.user %}
 

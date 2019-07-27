@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.conf import settings
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from datetime import datetime
 from django.urls import reverse
 from django.db.models import Q
@@ -154,11 +155,12 @@ def favourite_post(request, id):
     post = get_object_or_404(Post, id=id)
     if post.favourite.filter(id=request.user.id).exists():
         post.favourite.remove(request.user)
-
+        
     else:
         post.favourite.add(request.user)
     return HttpResponseRedirect(post.get_absolute_url())
 
+            
 
 
 def like_post(request):
@@ -259,12 +261,6 @@ def post_edit(request, id):
 
 
 
-
-
-
-
-
-
 def user_login(request):
 
 
@@ -320,6 +316,9 @@ def register(request):
 
 
 
+
+
+
 @login_required
 def edit_profile(request):
 
@@ -332,7 +331,14 @@ def edit_profile(request):
         if user_form.is_valid() or profile_form.is_valid():
             user_form.save()
             profile_form.save()
+
+            try:
+                user = User.objects.get(ProfileEditForm)
+                raise HttpResponse("Invalid")
+            except User.RelatedObjectDoesNotExist:
+                pass
         return HttpResponseRedirect(reverse('edit_profile'))
+        
 
     else:
         user_form = UserEditForm(instance=request.user)
@@ -341,6 +347,7 @@ def edit_profile(request):
         'user_form': user_form,
         'profile_form': profile_form,
     }
+        
     return render(request, 'blog/edit_profile.html', context)
 
 
