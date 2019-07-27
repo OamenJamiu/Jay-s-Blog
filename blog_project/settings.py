@@ -41,7 +41,7 @@ SECRET_KEY = '*q6ylhvtjj%1rski@7=64jk_)e=(tj^d&3a(@lg=pf$29zs+0e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jaysbloggers.herokuapp.com', '.jaysbloggers.com']
+ALLOWED_HOSTS = ['jaysblogg.herokuapp.com', '.jaysblogg.com']
 
 
 # Application definition
@@ -104,12 +104,12 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 
@@ -125,10 +125,6 @@ DATABASES = {
     }
 }
 
-
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -174,8 +170,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 LOGOUT_REDIRECT_URL = '/login'
-LOGIN_REDIRECT_URL = '/post_list'
+LOGIN_REDIRECT_URL = '/'
 
 
 CORS_REPLACE_HTTP_REFERER       =True
@@ -188,17 +188,6 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS  =True
 SECURE_HSTS_SECONDS             =1000000
 SECURE_FRAME_DENY               =True
 
-
-
-
-
-
-
-
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
