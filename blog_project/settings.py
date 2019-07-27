@@ -11,11 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 from .email_info import *
-EMAIL_USE_TLS = EMAIL_USE_TLS
-EMAIL_HOST = EMAIL_HOST
-EMAIL_HOST_USER = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-EMAIL_PORT = EMAIL_PORT
+
 
 
 
@@ -28,6 +24,17 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
+
+ADMINS = (
+    ('Oamen Jamiu', 'oamenjamiu@gmail.com'),
+)
+MANAGERS = ADMINS
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -37,7 +44,7 @@ SECRET_KEY = '*q6ylhvtjj%1rski@7=64jk_)e=(tj^d&3a(@lg=pf$29zs+0e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jaysbloggers.herokuapp.com', '.jaysbloggers.com']
+ALLOWED_HOSTS = ['jaysblogg.herokuapp.com', '.jaysblogg.com']
 
 
 # Application definition
@@ -170,8 +177,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-LOGOUT_REDIRECT_URL = '/login'
-LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'login/'
+LOGIN_REDIRECT_URL = 'post_list/'
 
 
 CORS_REPLACE_HTTP_REFERER       =True

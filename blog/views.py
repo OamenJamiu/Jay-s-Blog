@@ -305,7 +305,7 @@ def register(request):
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
             Profile.objects.create(user=new_user)
-            return redirect('post_list')
+            return redirect('login')
 
     else:
         form = UserRegistrationForm()
@@ -331,15 +331,6 @@ def edit_profile(request):
         if user_form.is_valid() or profile_form.is_valid():
             user_form.save()
             profile_form.save()
-
-            try:
-                user = User.objects.get(ProfileEditForm)
-                raise HttpResponse("Invalid")
-            except User.RelatedObjectDoesNotExist:
-                pass
-        return HttpResponseRedirect(reverse('edit_profile'))
-        
-
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
