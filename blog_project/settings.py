@@ -9,28 +9,19 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-import dj_database_url
-import django_heroku
-import os
-
-
-
 
 from .email_info import *
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
 EMAIL_USE_TLS = EMAIL_USE_TLS
 EMAIL_HOST = EMAIL_HOST
 EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_PORT = EMAIL_PORT
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-
-
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -39,9 +30,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*q6ylhvtjj%1rski@7=64jk_)e=(tj^d&3a(@lg=pf$29zs+0e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['jaysblogg.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -105,12 +96,12 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 
@@ -164,8 +155,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 
@@ -173,38 +162,29 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGOUT_REDIRECT_URL = '/login'
-LOGIN_REDIRECT_URL = '/'
-
-
-CORS_REPLACE_HTTP_REFERER       =True
-HOST_SCHEME                     ="https://"
-SECURE_PROXY_SSL_HEADER         =('HTTP_X_FORWARDED_PHOTO', 'https')
-SECURE_SSL_REDIRECT             =True
-SESSION_COOKIE_SECURE           =True
-CSRF_COOKIE_SECURE              =True
-SECURE_HSTS_INCLUDE_SUBDOMAINS  =True
-SECURE_HSTS_SECONDS             =1000000
-SECURE_FRAME_DENY               =True
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_REDIRECT_URL = 'post_list'
+
+
+# CORS_REPLACE_HTTP_REFERER       =True
+# HOST_SCHEME                     ="https://"
+# SECURE_PROXY_SSL_HEADER         =('HTTP_X_FORWARDED_PHOTO', 'https')
+# SECURE_SSL_REDIRECT             =True
+# SESSION_COOKIE_SECURE           =True
+# CSRF_COOKIE_SECURE              =True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS  =True
+# SECURE_HSTS_SECONDS             =1000000
+# SECURE_FRAME_DENY               =True
+
 
 LOGIN_REDIRECT_URL = 'post_list'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '388307402679-he7po2uvvk5vns4lhgjndc3k7h6svoai.apps.googleusercontent.com'
@@ -216,5 +196,5 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '13ffdbc4788b47d43054ad5fe449a7df'
 SOCIAL_AUTH_GITHUB_KEY = '9bf46346f23d87d71d50'
 SOCIAL_AUTH_GITHUB_SECRET = '43df50d095f1337df1a2df9ff5e5e62ee7e7d2d9'
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+# # Activate Django-Heroku.
+# django_heroku.settings(locals())
